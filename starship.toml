@@ -1,0 +1,99 @@
+# Don't print a new line at the start of the prompt
+add_newline = false
+# Pipes ╰─ ╭─
+# Powerline symbols                                    
+# Wedges 🭧🭒 🭣🭧🭓
+# Random noise 🬖🬥🬔🬗
+# Cool stuff 󰜥   
+
+format = """
+$cmd_duration $directory$git_branch
+  $character"""
+
+[fill]
+symbol = '-'
+style = 'fg:245'
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]                         # The name of the module we are configuring is "character"
+success_symbol = "[ ](bold fg:243)"
+error_symbol = "[ ](bold fg:244)"
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[git_branch]
+style = "bg:205"
+symbol = "󰘬"
+truncation_length = 12
+truncation_symbol = ""
+format = " 󰜥 [](bold fg:205)[$symbol $branch(:$remote_branch)](fg:16 bg:205)[ ](bold fg:205)"
+
+[git_commit]
+commit_hash_length = 4
+tag_symbol = " "
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = "[🍒 PICKING](bold red)"
+
+[git_status]
+conflicted = " 🏳 "
+ahead = " 🏎💨 "
+behind = " 😰 "
+diverged = " 😵 "
+untracked = " 🤷 ‍"
+stashed = " 📦 "
+modified = " 📝 "
+staged = '[++\($count\)](green)'
+renamed = " ✍️ "
+deleted = " 🗑 "
+
+[hostname]
+ssh_only = false
+format =  "[•$hostname](bg:205 bold fg:16)[](bold fg:205)"
+trim_at = ".companyname.com"
+disabled = false
+
+[line_break]
+disabled = false
+
+[memory_usage]
+disabled = true
+threshold = -1
+symbol = " "
+style = "bold dimmed green"
+
+[time]
+disabled = true
+format = '🕙[\[ $time \]]($style) '
+time_format = "%T"
+
+[username]
+style_user = "bold bg:205 fg:16"
+style_root = "red bold"
+format = "[](bold fg:205)[$user]($style)"
+disabled = false
+show_always = true
+
+[directory]
+home_symbol = " "
+read_only = "  "
+style = "bg:205 fg:16"
+truncation_length = 2
+truncation_symbol = ".../"
+format = '[](bold fg:205)[󰉋 → $path]($style)[](bold fg:205)'
+
+[directory.substitutions]
+"Desktop" = "  "
+"Documents" = "  "
+"Downloads" = "  "
+"Music" = " 󰎈 "
+"Pictures" = "  "
+"Videos" = "  "
+"GitHub" = " 󰊤 "
+
+[cmd_duration]
+min_time = 0
+format = '[](bold fg:22)[󰪢 $duration](bold bg:22 fg:120)[](bold fg:22)'
